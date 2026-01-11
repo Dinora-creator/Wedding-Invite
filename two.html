@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Wedding Invitation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- One font for EVERYTHING -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="1.css">
+</head>
+
+<body class="invite-page">
+
+<main class="invite-wrap">
+  <section class="invite-card">
+
+    <!-- corner lines -->
+    <span class="corner corner-tl"></span>
+    <span class="corner corner-br"></span>
+
+    <!-- Flower top-right (NO rotation, mirrored to match template direction) -->
+    <div class="flower" aria-hidden="true">
+      <svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+        <g fill="none" stroke="#222" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" opacity="0.9">
+
+          <!-- stems -->
+          <path d="M430 520 C400 470 370 420 350 385 C320 330 280 300 235 275" />
+          <path d="M390 520 C380 470 375 430 360 400 C340 350 305 315 270 292" />
+
+          <!-- leaves -->
+          <path d="M360 410 C410 395 440 425 420 470 C398 515 342 485 360 410" />
+          <path d="M320 390 C270 400 240 440 265 485 C290 530 350 485 320 390" />
+
+          <!-- flower (top) -->
+          <path d="M255 200 C225 160 170 165 155 210 C135 270 190 320 245 290 C300 260 300 225 255 200" />
+          <path d="M245 290 C220 260 215 235 225 205" />
+          <path d="M245 290 C270 260 285 238 295 210" />
+          <path d="M245 290 C245 255 228 235 205 220" />
+
+          <!-- flower (bottom) -->
+          <path d="M315 285 C285 255 235 262 220 300 C200 350 245 405 300 375 C355 345 355 312 315 285" />
+          <path d="M300 375 C272 345 270 318 282 290" />
+          <path d="M300 375 C328 345 345 320 358 292" />
+          <path d="M300 375 C300 340 282 322 255 305" />
+
+          <!-- bud -->
+          <path d="M470 380 C495 372 510 395 495 412 C480 427 458 412 470 380" />
+          <path d="M445 400 C455 392 463 386 470 380" />
+
+        </g>
+      </svg>
+    </div>
+
+    <!-- text -->
+    <div class="invite-content">
+
+      <div class="names">
+        <div class="name">OLIVIA</div>
+        <div class="and">and</div>
+        <div class="name">TAYLOR</div>
+      </div>
+
+      <p class="smallcaps">
+        REQUEST THE PLEASURE OF YOUR COMPANY<br>
+        AT THEIR WEDDING CELEBRATION
+      </p>
+
+      <div class="details">
+        <p class="date">AT 3PM, 30TH OCTOBER 2023</p>
+        <p class="place">ANYWHERE HOTEL</p>
+        <p class="address">123 ANYWHERE STREET., ANY CITY</p>
+      </div>
+
+      <div class="footer-script">
+        <span>Reception to Follow</span>
+        <span class="line"></span>
+      </div>
+
+    </div>
+
+  </section>
+</main>
+
+</body>
+</html>

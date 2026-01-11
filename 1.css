@@ -1,0 +1,219 @@
+/* =====================
+   RESET + FONT
+   ===================== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: "Libre Baskerville", Georgia, serif;
+  color: #222;
+}
+
+/* =====================
+   START PAGE (Envelope)
+   ===================== */
+.start-page{
+  height: 100vh;
+  background: #f6f1eb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container { perspective: 1000px; }
+
+/* envelope base */
+.envelope {
+  width: 420px;
+  height: 280px;
+  background: #e8dccc;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  overflow: hidden; /* IMPORTANT: keeps letter inside until it slides out */
+}
+
+/* flap (seal) */
+.flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #d8c6b0;
+  clip-path: polygon(0 0, 100% 0, 50% 50%);
+  transform-origin: top;
+  transition: transform 1s ease;
+  z-index: 3;
+}
+
+/* letter starts INSIDE */
+.letter {
+  position: absolute;
+  left: 5%;
+  bottom: -65%;          /* sits inside envelope */
+  width: 90%;
+  height: 90%;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 1.1s ease;
+  z-index: 2;
+}
+
+.letter p {
+  font-size: 18px;
+  letter-spacing: 0.06em;
+}
+
+/* open animation */
+.envelope.open .flap {
+  transform: rotateX(180deg);
+}
+
+.envelope.open .letter {
+  transform: translateY(-155%); /* slides out */
+}
+
+/* =====================
+   INVITE PAGE
+   ===================== */
+.invite-page{
+  min-height: 100vh;
+  background: #f3eeea;
+}
+
+.invite-wrap{
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.invite-card{
+  position: relative;
+  width: min(860px, 92vw);
+  aspect-ratio: 3 / 4;
+  background: #f6f1eb;
+  padding: clamp(28px, 6vw, 70px);
+  box-shadow: 0 18px 45px rgba(0,0,0,0.12);
+  overflow: hidden;
+}
+
+/* corner lines */
+.corner{
+  position: absolute;
+  width: 42%;
+  height: 42%;
+  pointer-events: none;
+}
+
+.corner-tl{
+  top: 42px;
+  left: 42px;
+  border-top: 2px solid rgba(0,0,0,0.6);
+  border-left: 2px solid rgba(0,0,0,0.6);
+}
+
+.corner-br{
+  bottom: 42px;
+  right: 42px;
+  border-bottom: 2px solid rgba(0,0,0,0.6);
+  border-right: 2px solid rgba(0,0,0,0.6);
+}
+
+/* FLOWER: fixed orientation (no rotation), anchored top-right */
+.flower{
+  position: absolute;
+  top: 34px;
+  right: 24px;
+  width: min(48%, 360px);
+  transform: scaleX(-1);       /* mirror to match Canva-like direction */
+  transform-origin: top right; /* anchored so it won't drift */
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.flower svg{
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* text layout */
+.invite-content{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(14px, 2.2vw, 22px);
+  max-width: 56%;
+}
+
+.names .name{
+  font-size: clamp(44px, 6.8vw, 82px);
+  letter-spacing: 0.08em;
+  font-weight: 400;
+}
+
+.and{
+  font-style: italic;
+  font-size: clamp(20px, 2.6vw, 30px);
+  margin: 6px 0 2px;
+  color: rgba(0,0,0,0.75);
+}
+
+.smallcaps{
+  margin-top: 10px;
+  font-size: clamp(11px, 1.4vw, 14px);
+  letter-spacing: 0.22em;
+  line-height: 1.8;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.72);
+}
+
+.details .date{
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-size: clamp(13px, 1.6vw, 18px);
+  margin-bottom: 10px;
+  color: rgba(0,0,0,0.82);
+}
+
+.details .place,
+.details .address{
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-size: clamp(11px, 1.4vw, 14px);
+  color: rgba(0,0,0,0.7);
+  margin-top: 6px;
+}
+
+/* bottom “Reception to Follow” + line */
+.footer-script{
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  max-width: 80%;
+}
+
+.footer-script span:first-child{
+  font-style: italic;
+  font-size: clamp(16px, 2.2vw, 26px);
+  color: rgba(0,0,0,0.72);
+  white-space: nowrap;
+}
+
+.footer-script .line{
+  height: 2px;
+  flex: 1;
+  background: rgba(0,0,0,0.55);
+  transform: translateY(6px);
+}
+
+/* mobile */
+@media (max-width: 560px){
+  .invite-content{ max-width: 100%; }
+  .flower{ width: 56%; opacity: 0.75; }
+}
